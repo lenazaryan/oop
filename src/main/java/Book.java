@@ -33,7 +33,9 @@ public class Book {
     }
 
     public String toString(){
-        return "Book(name=" + this.name + ", author=" + this.author + ")";
+        return "Book {\n " +
+                "   name = " + this.name + ",\n" +
+                "    author = " + this.author + "\n}";
     }
 
 }
