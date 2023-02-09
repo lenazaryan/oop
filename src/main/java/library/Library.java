@@ -1,11 +1,13 @@
+package library;
+
 import java.util.ArrayList;
 
 //1. identify entity
-//Library, Book, Student
+//library.Library, library.Book, Student
 //2. Define entities
-//Book - Author, Title
+//library.Book - Author, Title
 //Student - name, books[], read()
-//Library - books[], take(returns book), return()
+//library.Library - books[], take(returns book), return()
 //Design&Implementation
 
 public class Library {

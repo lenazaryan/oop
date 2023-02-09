@@ -1,21 +1,19 @@
-import org.w3c.dom.ranges.RangeException;
-
-import java.util.BitSet;
+package bit_vector;
 
 public class BitVector {
     int[] words;
     final int wordSizeInBits = 32;
-    int size;
+    int sizeInBits;
 
     public BitVector(int size){
-        this.size = size;
+        this.sizeInBits = size;
         this.words = new int[size / wordSizeInBits + 1];
     }
 
     public void set(int index) {
         if(index < 0)
             return;
-        if(index >= size)
+        if(index >= sizeInBits)
             return;
         int indexContainingWordIndex = index / wordSizeInBits;
         words[indexContainingWordIndex] |= maskForSet(index - indexContainingWordIndex * wordSizeInBits);
@@ -24,7 +22,7 @@ public class BitVector {
     public void reset(int index){
         if(index < 0)
             return;
-        if(index >= size)
+        if(index >= sizeInBits)
             return;
         int indexContainingWordIndex = index / wordSizeInBits;
         words[indexContainingWordIndex] &= maskForReset(index - indexContainingWordIndex * wordSizeInBits);
@@ -33,7 +31,7 @@ public class BitVector {
     public int get(int index){
         if(index < 0)
             return -1;
-        if(index >= size)
+        if(index >= sizeInBits)
             return -1;
         int indexContainingWordIndex = index / wordSizeInBits;
         int mask = maskForSet(index - indexContainingWordIndex * wordSizeInBits);
@@ -53,7 +51,7 @@ public class BitVector {
     }
 
     public void printBits(){
-        for (int i = size - 1; i >= 0; i--){
+        for (int i = sizeInBits - 1; i >= 0; i--){
             System.out.print(get(i));
         }
         System.out.println();

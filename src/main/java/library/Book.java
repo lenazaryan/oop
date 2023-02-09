@@ -1,3 +1,5 @@
+package library;
+
 public class Book {
     private String name;
     private String author;
@@ -33,7 +35,7 @@ public class Book {
     }
 
     public String toString(){
-        return "Book {\n " +
+        return "library.Book {\n " +
                 "   name = " + this.name + ",\n" +
                 "    author = " + this.author + "\n}";
     }

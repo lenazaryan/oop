@@ -1,7 +1,9 @@
+package bit_vector;
+
 import java.util.HashMap;
 
 /*
-when creating BitVector user should be able to set size of it
+when creating bit_vector.BitVector user should be able to set size of it
 newly created BV elements all should have 0 values
 BV b(100)
 b.set(42) receives index of element which we want to change from 0 to 1
