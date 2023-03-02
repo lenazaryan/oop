@@ -1,6 +1,6 @@
 package spreadsheet;
 
-public class Spreadsheet {
+public class Spreadsheet extends AbstractTable {
     Cell[][] cells;
     int rows;
 
@@ -17,21 +17,22 @@ public class Spreadsheet {
     public Spreadsheet(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
-        this.cells = new Cell[rows][columns];
+        this.cells = new StringCell[rows][columns];
     }
 
-    public void setCellAt(int row, int column, Cell cell) {
+    public void setCellAt(int row, int column, StringCell cell) {
         cells[row][column] = cell;
     }
 
     public void setCellAt(int row, int column, String cellValue) {
-        cells[row][column] = new Cell(cellValue);
+        cells[row][column] = new StringCell(cellValue);
     }
 
     public Cell getCellAt(int row, int column) {
         return cells[row][column];
     }
 
+    @Override
     public void addRow(int row) {
         Cell[][] newCells = new Cell[rows + 1][columns];
         for (int i = 0; i < row; i++) {
@@ -44,6 +45,7 @@ public class Spreadsheet {
         rows++;
     }
 
+    @Override
     public void removeRow(int row) {
         Cell[][] newCells = new Cell[rows - 1][columns];
         for (int i = 0; i < row; i++) {
@@ -56,6 +58,7 @@ public class Spreadsheet {
         rows--;
     }
 
+    @Override
     public void addColumn(int column) {
         Cell[][] newCells = new Cell[rows][columns + 1];
         for (int i = 0; i < rows; i++) {
@@ -70,6 +73,7 @@ public class Spreadsheet {
         columns++;
     }
 
+    @Override
     public void removeColumn(int column) {
         Cell[][] newCells = new Cell[rows][columns - 1];
         for (int i = 0; i < rows; i++) {
@@ -84,6 +88,8 @@ public class Spreadsheet {
         columns--;
     }
 
+
+    @Override
     public void swapRows(int row1, int row2) {
         Cell[] temp = cells[row1];
         cells[row1] = cells[row2];
@@ -91,6 +97,7 @@ public class Spreadsheet {
 
     }
 
+    @Override
     public void swapColumns(int column1, int column2) {
         for (int i = 0; i < rows; i++) {
             Cell temp = cells[i][column1];
@@ -109,5 +116,6 @@ public class Spreadsheet {
         }
         return cells;
     }
+
 }
 
